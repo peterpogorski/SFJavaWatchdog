@@ -1,0 +1,9 @@
+{
+ "ClusterConnectionParameters": 
+ {
+    "ConnectionIPOrURL": "http://t-pepogo-jenkins-lrc.westus.cloudapp.azure.com",
+    "ConnectionPort": "19080",
+    "ClientKey": "",
+    "ClientCert": ""
+ }
+}

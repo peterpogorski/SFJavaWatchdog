@@ -1,0 +1,69 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceSets {
+  main {
+     java.srcDirs = ['src']
+     output.classesDir = 'out/classes'
+      resources {
+       srcDirs = ['src']
+     }
+   }
+}
+
+clean.doFirst {
+    delete "${projectDir}/lib"
+    delete "${projectDir}/out"
+    delete "${projectDir}/../WatchdogApplication/ContainerHealthWatchdogPkg/Code/lib"
+    delete "${projectDir}/../WatchdogApplication/ContainerHealthWatchdogPkg/Code/ContainerHealthWatchdog.jar"
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    azuresf
+}
+
+dependencies {
+	azuresf ('commons-logging:commons-logging:1.2')
+	azuresf ('com.spotify:docker-client:8.9.0')
+    azuresf ('com.microsoft.servicefabric:sf-services-preview:0.10.0')
+    compile fileTree(dir: 'lib', include: '*.jar')
+}
+
+task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
+    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+        from zipTree(it)
+    }
+    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+        from it
+    }
+    into "lib"
+    include "libj*.so", "*.jar"
+}
+
+jar {
+    manifest {
+    def mpath = configurations.azuresf.collect {'lib/'+it.getName()}.join (' ')
+    attributes(
+        'Main-Class': 'statelessservice.ContainerHealthWatchdogServiceHost',
+        "Class-Path": mpath)
+    baseName "ContainerHealthWatchdog"
+
+    destinationDir = file('../WatchdogApplication/ContainerHealthWatchdogPkg/Code/')
+    }
+}
+
+compileJava.dependsOn(explodeDeps)
+
+task copyDeps<< {
+    copy {
+        from("lib/")
+        into("../WatchdogApplication/ContainerHealthWatchdogPkg/Code/lib")
+        include('*')
+    }
+}
+
+defaultTasks 'clean', 'jar', 'copyDeps'

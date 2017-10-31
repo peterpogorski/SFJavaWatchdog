@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationManifest
+  ApplicationTypeName="WatchdogApplicationType"
+  ApplicationTypeVersion="1.0.0"
+  xmlns="http://schemas.microsoft.com/2011/01/fabric"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  >
+  <Description>Watchdog Application</Description>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ContainerHealthWatchdogPkg" ServiceManifestVersion="1.0.0"/>
+     <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="username"  />
+      </Policies>
+  </ServiceManifestImport>
+  <DefaultServices>
+      <Service Name="ContainerHealthWatchdog">
+         <StatelessService ServiceTypeName="ContainerHealthWatchdogType" InstanceCount="-1">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>      
+   </DefaultServices> 
+  <Principals>   
+  	<Users>
+     <User Name="username" AccountType="LocalSystem">
+     </User>
+  	</Users>
+ </Principals>       
+</ApplicationManifest>

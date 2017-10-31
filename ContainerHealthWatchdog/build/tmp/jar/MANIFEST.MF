@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Main-Class: statelessservice.ContainerHealthWatchdogServiceHost
+Class-Path: lib/commons-logging-1.2.jar lib/docker-client-8.9.0.jar li
+ b/sf-services-preview-0.10.0.jar lib/slf4j-api-1.7.22.jar lib/guava-2
+ 0.0.jar lib/jackson-jaxrs-json-provider-2.8.8.jar lib/jackson-datatyp
+ e-guava-2.8.8.jar lib/jackson-databind-2.8.8.jar lib/jersey-client-2.
+ 22.2.jar lib/jersey-apache-connector-2.22.2.jar lib/jersey-media-json
+ -jackson-2.22.2.jar lib/commons-compress-1.9.jar lib/commons-io-2.5.j
+ ar lib/httpclient-4.5.jar lib/httpcore-4.4.5.jar lib/jnr-unixsocket-0
+ .8.jar lib/commons-lang-2.6.jar lib/bcpkix-jdk15on-1.52.jar lib/logba
+ ck-classic-1.2.1.jar lib/sf-transport-preview-0.10.0.jar lib/gson-2.7
+ .jar lib/asm-commons-5.0.4.jar lib/asm-5.0.4.jar lib/asm-util-5.0.4.j
+ ar lib/jackson-jaxrs-base-2.8.8.jar lib/jackson-core-2.8.8.jar lib/ja
+ ckson-module-jaxb-annotations-2.8.8.jar lib/jackson-annotations-2.8.0
+ .jar lib/javax.ws.rs-api-2.0.1.jar lib/jersey-common-2.22.2.jar lib/h
+ k2-api-2.4.0-b34.jar lib/javax.inject-2.4.0-b34.jar lib/hk2-locator-2
+ .4.0-b34.jar lib/jersey-entity-filtering-2.22.2.jar lib/commons-codec
+ -1.9.jar lib/jnr-ffi-2.0.3.jar lib/jnr-constants-0.8.7.jar lib/jnr-en
+ xio-0.9.jar lib/jnr-posix-3.0.12.jar lib/bcprov-jdk15on-1.52.jar lib/
+ logback-core-1.2.1.jar lib/sf-preview-0.10.0.jar lib/asm-tree-5.0.4.j
+ ar lib/javax.annotation-api-1.2.jar lib/jersey-guava-2.22.2.jar lib/o
+ sgi-resource-locator-1.0.1.jar lib/hk2-utils-2.4.0-b34.jar lib/aopall
+ iance-repackaged-2.4.0-b34.jar lib/javassist-3.18.1-GA.jar lib/jffi-1
+ .2.9.jar lib/jffi-1.2.9-native.jar lib/asm-analysis-5.0.3.jar lib/jnr
+ -x86asm-1.0.2.jar lib/sf-native-preview-0.10.0.jar lib/javax.inject-1
+ .jar
+
