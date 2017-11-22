@@ -3,3 +3,7 @@ A simple Java application that can be deployed on a Service Fabric cluster to mo
 
 ## Configuration
 In order for the health of a container application to be reported a Health Check must be added to the dockerfile.
+
+## License 
+
+Licensed under the [MIT](LICENSE.txt) License.
